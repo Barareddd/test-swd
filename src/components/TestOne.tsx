@@ -80,7 +80,7 @@ const TestOne: React.FC = () => {
         <h1 className="text-2xl font-bold">{t("Layout & Style")}</h1>
         <div>
           <Link to={"/test2"}>
-            <Button className="mr-2">Go to Test 2</Button>
+            <Button className="mr-2">{t("Go to Test 2")}</Button>
           </Link>
           <Dropdown
             menu={{ items }}

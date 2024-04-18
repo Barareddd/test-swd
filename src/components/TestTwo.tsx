@@ -41,7 +41,7 @@ const TestTwo: React.FC = () => {
         <h1 className="text-2xl font-bold">{t("Forms management")}</h1>
         <div>
           <Link to={"/"}>
-            <Button className="mr-2">Back to Test 1</Button>
+            <Button className="mr-2">{t("Back to Test 1")}</Button>
           </Link>
           <Dropdown
             menu={{ items }}
@@ -61,34 +61,34 @@ const TestTwo: React.FC = () => {
         <div className="w-[70%] h-[30rem] border-solid border-2 border-black rounded-md m-auto p-2">
           <Form layout="horizontal" className="w-[100%]">
             <Form.Item
-              label="prefix"
+              label={t("prefix")}
               rules={[{ required: true }]}
               name="prefix"
               className="inline-block mr-1 w-[10rem]"
             >
-              <Select placeholder="prefix">
-                <Select.Option value="Mr.">Mr.</Select.Option>
-                <Select.Option value="Ms.">Ms.</Select.Option>
+              <Select placeholder={t("prefix")}>
+                <Select.Option value="Mr.">{t("mr")}</Select.Option>
+                <Select.Option value="Ms.">{t("ms")}</Select.Option>
               </Select>
             </Form.Item>
             <Form.Item
-              label="name"
+              label={t("name")}
               name="name"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-[24rem]"
             >
-              <Input placeholder="name" />
+              <Input placeholder={t("name")} />
             </Form.Item>
             <Form.Item
-              label="surname"
+              label={t("surname")}
               name="surname"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-[24rem]"
             >
-              <Input placeholder="surname" />
+              <Input placeholder={t("surname")} />
             </Form.Item>
             <Form.Item
-              label="birthdate"
+              label={t("birthDate")}
               rules={[{ required: true }]}
               name="birthdate"
               className="inline-block mr-12 w-[10rem]"
@@ -96,18 +96,18 @@ const TestTwo: React.FC = () => {
               <DatePicker />
             </Form.Item>
             <Form.Item
-              label="nationality"
+              label={t("nationality")}
               name="nationality"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-[24rem]"
             >
               <Select placeholder="-- please select --">
-                <Select.Option value="Thai">Thai</Select.Option>
-                <Select.Option value="English">English</Select.Option>
+                <Select.Option value="Thai">{t("thai")}</Select.Option>
+                <Select.Option value="English">{t("eng")}</Select.Option>
               </Select>
             </Form.Item>
             <Form.Item
-              label="ID"
+              label={t("id")}
               name="ID"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-full"
@@ -123,19 +123,19 @@ const TestTwo: React.FC = () => {
               <Input className="inline-block mx-1 w-[6rem]" />
             </Form.Item>
             <Form.Item
-              label="gender"
+              label={t("gender")}
               name="gender"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-full"
             >
               <Radio.Group>
-                <Radio value="Male"> Male </Radio>
-                <Radio value="Female"> Female </Radio>
-                <Radio value="Not specified"> Not specified </Radio>
+                <Radio value="Male">{t("male")}</Radio>
+                <Radio value="Female">{t("female")}</Radio>
+                <Radio value="Not specified">{t("notSpecified")}</Radio>
               </Radio.Group>
             </Form.Item>
             <Form.Item
-              label="phoneumber"
+              label={t("phoneNumber")}
               name="phoneumber"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-[40rem]"
@@ -150,7 +150,7 @@ const TestTwo: React.FC = () => {
               <Input className="inline-block mx-1 w-[18rem]" />
             </Form.Item>
             <Form.Item
-              label="passport"
+              label={t("passport")}
               name="passport"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-[30rem]"
@@ -159,7 +159,7 @@ const TestTwo: React.FC = () => {
             </Form.Item>
             <br />
             <Form.Item
-              label="expected salary"
+              label={t("expectedSalary")}
               name="expected salary"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-[30rem]"
@@ -167,7 +167,7 @@ const TestTwo: React.FC = () => {
               <Input />
             </Form.Item>
             <Form.Item className="inline-block">
-              <Button htmlType="submit">Submit</Button>
+              <Button htmlType="submit">{t("submit")}</Button>
             </Form.Item>
           </Form>
         </div>
