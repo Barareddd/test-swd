@@ -10,13 +10,14 @@ import {
   SpotifyOutlined,
   OpenAIOutlined,
   DiscordOutlined,
-  TwitchOutlined,
+  TwitchOutlined, //icons
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Dropdown, Space, Divider, Row, Col } from "antd";
+import { Dropdown, Space, Divider, Row, Col, Button } from "antd";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
-const Swd: React.FC = () => {
+const TestOne: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   const [colOrder, setColOrder] = useState<React.ReactNode[]>([
@@ -75,20 +76,25 @@ const Swd: React.FC = () => {
 
   return (
     <div className="h-screen bg-gradient-to-r from-[#6eda78] to-[#ffa200]">
-      <div className="h-[4rem] flex justify-between p-2">
+      <div className="h-[4rem] flex justify-between p-3">
         <h1 className="text-2xl font-bold">{t("Layout & Style")}</h1>
-        <Dropdown
-          menu={{ items }}
-          trigger={["click"]}
-          className="p-1 bg-white rounded-md h-fit"
-        >
-          <a onClick={(e) => e.preventDefault()}>
-            <Space>
-              {i18n.language}
-              <GlobalOutlined />
-            </Space>
-          </a>
-        </Dropdown>
+        <div>
+          <Link to={"/test2"}>
+            <Button className="mr-2">Go to Test 2</Button>
+          </Link>
+          <Dropdown
+            menu={{ items }}
+            trigger={["click"]}
+            className="p-1 bg-white rounded-md h-fit"
+          >
+            <a onClick={(e) => e.preventDefault()}>
+              <Space>
+                {i18n.language}
+                <GlobalOutlined />
+              </Space>
+            </a>
+          </Dropdown>
+        </div>
       </div>
       <div>
         <div className="container m-auto">
@@ -159,4 +165,4 @@ const Swd: React.FC = () => {
   );
 };
 
-export default Swd;
+export default TestOne;

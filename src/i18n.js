@@ -10,6 +10,7 @@ const resources = {
       "Layout & Style": "การจัดการหน้าเว็บ",
       "Move shape": "เลื่อนรูปแบบ",
       "Move position": "เลื่อนตำแหน่ง",
+      "Forms management": "การจัดการหน้าฟอร์ม",
     },
   },
   en: {
@@ -17,6 +18,7 @@ const resources = {
       "Layout & Style": "Layout & Style",
       "Move shape": "Move shape",
       "Move position": "Move position",
+      "Forms management": "Forms management",
     },
   },
 };
