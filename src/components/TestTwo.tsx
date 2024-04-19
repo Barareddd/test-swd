@@ -13,7 +13,9 @@ import { Dropdown, Space } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import PersonsData from "./PersonsData";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addPerson } from "../store/personsSlice";
+import { saveStateToLocalStorage } from "../localStorage";
 
 const TestTwo: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -34,6 +36,16 @@ const TestTwo: React.FC = () => {
   ];
 
   const dispatch = useDispatch();
+  const [form] = Form.useForm();
+
+  const onFinish = (values: any) => {
+    dispatch(addPerson(values)); // Dispatch action with form data
+    form.resetFields(); // Reset form fields after submission
+  };
+
+  const persons = useSelector((state: any) => state.persons);
+
+  console.log("Persons in Redux Store:", persons);
 
   return (
     <div className="h-screen bg-gradient-to-r from-[#6eda78] to-[#ffa200]">
@@ -59,7 +71,12 @@ const TestTwo: React.FC = () => {
       </div>
       <div className="container m-auto">
         <div className="w-[70%] h-[30rem] border-solid border-2 border-black rounded-md m-auto p-2">
-          <Form layout="horizontal" className="w-[100%]">
+          <Form
+            layout="horizontal"
+            className="w-[100%]"
+            form={form}
+            onFinish={onFinish}
+          >
             <Form.Item
               label={t("prefix")}
               rules={[{ required: true }]}
@@ -112,15 +129,17 @@ const TestTwo: React.FC = () => {
               rules={[{ required: true }]}
               className="inline-block mr-1 w-full"
             >
-              <Input className="inline-block mr-1 w-[6rem]" />
-              -
-              <Input className="inline-block mx-1 w-[10rem]" />
-              -
-              <Input className="inline-block mx-1 w-[10rem]" />
-              -
-              <Input className="inline-block mx-1 w-[8rem]" />
-              -
-              <Input className="inline-block mx-1 w-[6rem]" />
+              <div>
+                <Input className="inline-block mr-1 w-[6rem]" />
+                -
+                <Input className="inline-block mx-1 w-[10rem]" />
+                -
+                <Input className="inline-block mx-1 w-[10rem]" />
+                -
+                <Input className="inline-block mx-1 w-[8rem]" />
+                -
+                <Input className="inline-block mx-1 w-[6rem]" />
+              </div>
             </Form.Item>
             <Form.Item
               label={t("gender")}
@@ -136,19 +155,22 @@ const TestTwo: React.FC = () => {
             </Form.Item>
             <Form.Item
               label={t("phoneNumber")}
-              name="phoneumber"
+              name="phonenumber"
               rules={[{ required: true }]}
               className="inline-block mr-1 w-[40rem]"
             >
-              <Form.Item className="inline-block mx-1 w-[4rem]">
-                <Select>
-                  <Select.Option value="+99">+99</Select.Option>
-                  <Select.Option value="+00">+00</Select.Option>
-                </Select>
-              </Form.Item>
-              -
-              <Input className="inline-block mx-1 w-[18rem]" />
+              <div>
+                <Form.Item className="inline-block mx-1 w-[4rem]">
+                  <Select>
+                    <Select.Option value="+99">+99</Select.Option>
+                    <Select.Option value="+00">+00</Select.Option>
+                  </Select>
+                </Form.Item>
+                -
+                <Input className="inline-block mx-1 w-[18rem]" />
+              </div>
             </Form.Item>
+
             <Form.Item
               label={t("passport")}
               name="passport"

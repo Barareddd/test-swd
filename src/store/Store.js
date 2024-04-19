@@ -1,8 +1,17 @@
-import { configureStore } from "@reduxjs/toolkit";
-import personSlice from "./Reducer";
+// store.js
 
-export default configureStore({
+import { configureStore } from "@reduxjs/toolkit";
+import personsReducer from "./personsSlice";
+import { saveStateToLocalStorage } from "../localStorage";
+
+const store = configureStore({
   reducer: {
-    persons: personSlice,
+    persons: personsReducer,
   },
 });
+
+store.subscribe(() => {
+  saveStateToLocalStorage(store.getState());
+});
+
+export default store;
